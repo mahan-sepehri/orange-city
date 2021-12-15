@@ -121,7 +121,8 @@ const GameWorld = () => {
         ></div>
       </div>
       <div className="button-container">
-        <button
+        <div
+          className="button-box"
           onMouseDown={backwardWalkHandler}
           onMouseUp={() => {
             stopObject();
@@ -130,9 +131,11 @@ const GameWorld = () => {
           onTouchEnd={() => {
             stopObject();
           }}
-          className="back-button"
-        ></button>
-        <button
+        >
+          <button className="back-button"></button>
+        </div>
+        <div
+          className="button-box"
           onMouseDown={forwardWalkHandler}
           onMouseUp={() => {
             stopObject();
@@ -141,8 +144,9 @@ const GameWorld = () => {
           onTouchEnd={() => {
             stopObject();
           }}
-          className="forward-button"
-        ></button>
+        >
+          <button className="forward-button"></button>
+        </div>
       </div>
     </div>
   );

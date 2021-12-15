@@ -18,12 +18,24 @@
 
 .button-container {
   width: 90vw;
+  max-width: 400px;
   height: 10vh;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
+  margin-top: 10px;
+}
+
+.button-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border: 1px solid lightgray;
+  border-radius: 9px;
 }
 
 .back-button,
