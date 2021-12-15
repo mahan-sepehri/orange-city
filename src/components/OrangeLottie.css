@@ -1,0 +1,15 @@
+.child {
+  width: 200px;
+  height: 200px;
+
+  position: absolute;
+  top: 70%;
+}
+
+.lottie-container {
+  transition: left 0.02s ease-in-out;
+}
+
+.lottie-container.backward {
+  transform: scaleX(-1);
+}

@@ -1,0 +1,45 @@
+.game-screen {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  overflow-x: hidden;
+}
+
+.char-container {
+  margin-top: 50px;
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  border: 1px solid lightgray;
+}
+
+.button-container {
+  width: 90vw;
+  height: 10vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.back-button,
+.forward-button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+}
+.back-button {
+  background-image: url(../assets/left-arrow.svg);
+}
+.forward-button {
+  background-image: url(../assets/right-arrow.svg);
+}
+.back-button:focus-visible,
+.forward-button:focus-visible {
+  outline-color: transparent;
+}
