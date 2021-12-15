@@ -13,7 +13,7 @@ const KnifeContainer = () => {
       return;
     }
 
-    setDelta((time - lastTime) / 60);
+    setDelta((time - lastTime) / 30);
 
     lastTime = time;
     window.requestAnimationFrame(moveKnife);
@@ -23,10 +23,10 @@ const KnifeContainer = () => {
   });
   return (
     <>
-      <Knife knifeLeft={12} delta={delta} />
-      <Knife knifeLeft={32} delta={delta} />
-      <Knife knifeLeft={52} delta={delta} />
-      <Knife knifeLeft={72} delta={delta} />
+      <Knife knifeLeft={9} delta={delta} />
+      <Knife knifeLeft={34} delta={delta} />
+      <Knife knifeLeft={59} delta={delta} />
+      <Knife knifeLeft={85} delta={delta} />
     </>
   );
 };
