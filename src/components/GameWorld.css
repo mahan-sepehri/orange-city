@@ -1,15 +1,15 @@
 .game-screen {
   width: 100vw;
   height: 80vh;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: stretch;
 
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .char-container {
-  margin-top: 50px;
   width: 100%;
   max-width: 450px;
   position: relative;

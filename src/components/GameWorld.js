@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import OrangeLottie, { walkingOrange } from "./OrangeLottie";
 
+import KnifeContainer from "./KnifeContainer";
 import "./GameWorld.css";
 
 let animationFrame;
@@ -50,8 +51,10 @@ const GameWorld = () => {
 
       if (e.key === "ArrowRight") {
         directionFactor = 1;
+        document.removeEventListener("keydown", ArrowKeyDownHandler);
       } else if (e.key === "ArrowLeft") {
         directionFactor = -1;
+        document.removeEventListener("keydown", ArrowKeyDownHandler);
       } else {
         return;
       }
@@ -59,11 +62,15 @@ const GameWorld = () => {
     },
     [moveObject]
   );
-  const ArrowKeyUpHandler = useCallback((e) => {
-    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-      stopObject();
-    }
-  }, []);
+  const ArrowKeyUpHandler = useCallback(
+    (e) => {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        stopObject();
+        document.addEventListener("keydown", ArrowKeyDownHandler);
+      }
+    },
+    [ArrowKeyDownHandler]
+  );
 
   function stopObject() {
     if (animationFrame) {
@@ -100,6 +107,7 @@ const GameWorld = () => {
           }}
         ></div>
         <div className="char-container">
+          <KnifeContainer />
           <OrangeLottie
             childLeft={`${childLeft}%`}
             directionFactor={directionFactor}
