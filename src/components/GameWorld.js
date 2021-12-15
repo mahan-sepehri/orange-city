@@ -98,7 +98,7 @@ const GameWorld = () => {
   }, [ArrowKeyUpHandler, ArrowKeyDownHandler]);
 
   return (
-    <div>
+    <div className="game-world">
       <div className="game-screen">
         <div
           className="left-barrier"
