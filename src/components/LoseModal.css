@@ -16,9 +16,18 @@
   max-width: 400px;
   height: 70vh;
   display: flex;
+  flex-direction: column;
+  gap: 40px;
   justify-content: center;
   align-items: center;
   border: 1px solid lightslategrey;
   border-radius: 7px;
   background-color: white;
+}
+
+.play-again {
+  padding: 6px 12px;
+  background-color: transparent;
+  border-radius: 7px;
+  border: 1px solid black;
 }

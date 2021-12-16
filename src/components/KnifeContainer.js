@@ -4,9 +4,12 @@ import Knife from "./Knife";
 import LoseModal from "./LoseModal";
 let orangeSvg;
 let orangeRect;
+let knifeSpeed = 30;
+let score = 0;
 
 const KnifeContainer = () => {
   const [hasLost, setHasLost] = useState(false);
+
   let lastTime;
   const [delta, setDelta] = useState(0);
   useLayoutEffect(() => {
@@ -22,7 +25,7 @@ const KnifeContainer = () => {
       return;
     }
 
-    setDelta((time - lastTime) / 30);
+    setDelta((time - lastTime) / knifeSpeed);
 
     lastTime = time;
     window.requestAnimationFrame(moveKnife);
@@ -34,6 +37,9 @@ const KnifeContainer = () => {
   useEffect(() => {
     function checkLose() {
       setInterval(() => {
+        if (knifeSpeed > 5) {
+          knifeSpeed -= 0.1;
+        }
         if (orangeSvg) {
           orangeRect = orangeSvg.getBoundingClientRect();
         }
@@ -49,7 +55,12 @@ const KnifeContainer = () => {
               knifeRect.left < orangeRect.right &&
               knifeRect.top < orangeRect.bottom
           );
-          setHasLost(asdasd);
+          if (asdasd) {
+            setHasLost(true);
+          } else {
+            setHasLost(false);
+            score += 1;
+          }
         }
       }, 500);
     }
@@ -57,7 +68,7 @@ const KnifeContainer = () => {
   }, []);
   return (
     <>
-      {hasLost && <LoseModal />}
+      {hasLost && <LoseModal score={score} />}
       {!hasLost && (
         <>
           <Knife knifeLeft={9} delta={delta} />
