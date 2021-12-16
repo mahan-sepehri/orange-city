@@ -10,6 +10,7 @@ let directionFactor = 0;
 
 const GameWorld = () => {
   const [childLeft, setChildLeft] = useState(20);
+
   const backwardWalkHandler = () => {
     directionFactor = -1;
 
