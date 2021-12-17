@@ -25,7 +25,7 @@ const OrangeLottie = React.memo((props) => {
   }, []);
 
   return (
-    <div style={{ left: `${props.childLeft}` }} className="child">
+    <div style={{ left: "23%" }} className="child">
       <div
         className={`lottie-container ${
           props.directionFactor === -1 ? "backward" : ""

@@ -29,6 +29,17 @@
   max-width: 450px;
   position: relative;
   border: 1px solid lightgray;
+  margin: 2%;
+  overflow: hidden;
+}
+
+.ground-container {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+}
+.ground {
+  height: 75vh;
 }
 
 .button-container {

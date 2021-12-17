@@ -1,15 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
 import OrangeLottie, { walkingOrange } from "./OrangeLottie";
 
-import KnifeContainer from "./KnifeContainer";
 import "./GameWorld.css";
+import ground from "../assets/ground.png";
 
 let animationFrame;
 let lastTime;
 let directionFactor = 0;
 
 const GameWorld = () => {
-  const [childLeft, setChildLeft] = useState(20);
+  const [childLeft, setChildLeft] = useState(0);
 
   const backwardWalkHandler = () => {
     directionFactor = -1;
@@ -28,18 +28,18 @@ const GameWorld = () => {
       return;
     }
 
-    const delta = (time - lastTime) / 20;
+    const delta = (time - lastTime) / 5;
     lastTime = time;
     walkingOrange.play();
 
     setChildLeft((prev) => {
-      if (prev < -16) {
-        return -16;
-      } else if (prev > 71) {
-        return 71;
+      if (prev < -2600) {
+        return -2600;
+      } else if (prev > 0) {
+        return 0;
       } else {
         animationFrame = window.requestAnimationFrame(moveObject);
-        return prev + delta * directionFactor;
+        return prev - delta * directionFactor;
       }
     });
   }, []);
@@ -101,25 +101,13 @@ const GameWorld = () => {
   return (
     <div className="game-world">
       <div className="game-screen">
-        <div
-          className="left-barrier"
-          style={{
-            width: `5vw`,
-          }}
-        ></div>
         <div className="char-container">
-          <KnifeContainer />
-          <OrangeLottie
-            childLeft={`${childLeft}%`}
-            directionFactor={directionFactor}
-          />
+          <div className="ground-container" style={{ left: `${childLeft}px` }}>
+            <img src={ground} alt="ground" className="ground" />
+            <img src={ground} alt="ground" className="ground" />
+          </div>
+          <OrangeLottie directionFactor={directionFactor} />
         </div>
-        <div
-          className="right-barrier"
-          style={{
-            width: `5vw`,
-          }}
-        ></div>
       </div>
       <div className="button-container">
         <div
